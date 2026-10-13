@@ -1,7 +1,7 @@
 /** Canonical site origin used for SEO, sitemap and social previews. */
 export const SITE_URL = 'https://startbiz.in';
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/cover.webp`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/hero-workspace.webp`;
 
 export function absoluteUrl(path = '/') {
   if (!path) return `${SITE_URL}/`;

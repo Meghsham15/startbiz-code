@@ -78,7 +78,7 @@ function organizationLd(description, email) {
     name: 'startbiz.in',
     url: `${SITE}/`,
     logo: `${SITE}/images/logo-light.png`,
-    image: `${SITE}/images/cover.webp`,
+    image: `${SITE}/images/hero-workspace.webp`,
     description,
     telephone: '+917038984692',
     email,
@@ -445,7 +445,7 @@ function jsonLdTag(data) {
 
 function injectMeta(html, route) {
   const url = pageUrl(route.canonicalPath || route.path);
-  const image = route.image || `${SITE}/images/cover.webp`;
+  const image = route.image || `${SITE}/images/hero-workspace.webp`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
 

@@ -59,8 +59,8 @@ export default function About() {
             <OptimizedImage
               src={brand.cover}
               alt={`${brand.name} business consulting services overview`}
-              width={1200}
-              height={675}
+              width={1280}
+              height={720}
               className="relative w-full rounded-2xl shadow-soft"
             />
           </div>

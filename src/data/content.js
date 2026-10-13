@@ -61,7 +61,7 @@ export const brand = {
   contactPerson: 'Amol Ghoderao',
   logo: asset('/images/logo-transparent.webp'),
   logoDark: asset('/images/logo-transparent.webp'),
-  cover: asset('/images/cover.webp'),
+  cover: asset('/images/hero-workspace.webp'),
   texture: asset('/textures/asfalt-dark.png'),
   textureAlt: asset('/textures/debut-dark.png'),
   textureLight: asset('/textures/light-paper-fibers.png'),
