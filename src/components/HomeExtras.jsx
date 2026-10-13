@@ -38,10 +38,10 @@ function ChoiceChip({ active, children, onClick, hint }) {
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-lg border px-3 py-2 text-left transition duration-200 ${
+      className={`rounded-lg border px-3 py-2 text-left ${
         active
           ? 'border-brand-primary bg-brand-primary text-white shadow-soft'
-          : 'border-[#dbdbdb] bg-white text-brand-text hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-soft'
+          : 'border-[#dbdbdb] bg-white text-brand-text hover:border-brand-accent hover:shadow-soft'
       }`}
     >
       <span className="block text-sm font-medium">{children}</span>
@@ -77,10 +77,10 @@ export function ProblemPathways() {
             return (
               <article
                 key={path.id}
-                className={`group relative overflow-hidden rounded-xl border p-5 transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:p-6 ${path.accent}`}
+                className={`group relative overflow-hidden rounded-xl border p-5 hover:shadow-soft sm:p-6 ${path.accent}`}
               >
                 <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/50 transition duration-300 group-hover:scale-125"
+                  className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/50"
                   aria-hidden
                 />
                 <IconBadge className="mb-4">
@@ -111,7 +111,7 @@ export function ProblemPathways() {
                 </ul>
                 <Link
                   to={path.to}
-                  className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition group-hover:gap-2 hover:text-brand-accent"
+                  className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition hover:text-brand-accent"
                 >
                   {path.cta} <span aria-hidden>→</span>
                 </Link>
@@ -165,7 +165,7 @@ export function SolutionFinderSection() {
     if (!submitted || results.length === 0) return;
     const id = window.requestAnimationFrame(() => {
       resultsRef.current?.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'auto',
         block: 'start',
       });
     });
@@ -329,10 +329,10 @@ export function JourneySection() {
           {journeySteps.map((step, index) => (
             <li
               key={step.n}
-              className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft"
+              className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 hover:border-brand-accent hover:shadow-soft"
             >
               <div
-                className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-accent/10 transition group-hover:scale-125"
+                className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-accent/10 transition"
                 aria-hidden
               />
               <IconStep n={step.n} />
@@ -381,7 +381,7 @@ export function AskStartbizSection() {
                 href={getWhatsAppUrl(example)}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-start gap-3 rounded-xl border border-[#dbdbdb] bg-white px-4 py-3 text-sm text-brand-text transition duration-300 hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-soft sm:text-base"
+                className="group flex items-start gap-3 rounded-xl border border-[#dbdbdb] bg-white px-4 py-3 text-sm text-brand-text hover:border-brand-accent hover:shadow-soft sm:text-base"
               >
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-muted text-sm font-bold text-brand-primary transition group-hover:bg-brand-primary group-hover:text-white">
                   ?
@@ -505,7 +505,7 @@ export function IndustrySection() {
             <Link
               key={item.slug}
               to={`/industries/${item.slug}`}
-              className="rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 transition hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-soft"
+              className="rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 transition hover:border-brand-accent hover:shadow-soft"
             >
               <span className="text-2xl">{item.icon}</span>
               <h3 className="mt-3 font-semibold text-brand-text">{item.title}</h3>

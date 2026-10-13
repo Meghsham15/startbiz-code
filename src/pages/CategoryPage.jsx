@@ -77,7 +77,7 @@ export default function CategoryPage() {
                     <Link
                       key={title}
                       to={`/services/${slug}`}
-                      className="group rounded-2xl border border-[#eee] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-soft"
+                      className="group rounded-2xl border border-[#eee] bg-white p-5 hover:border-brand-primary hover:shadow-soft"
                     >
                       <h3 className="text-base font-semibold text-brand-text group-hover:text-brand-primary">
                         {title}

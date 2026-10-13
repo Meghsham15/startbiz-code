@@ -76,14 +76,14 @@ export default function Services() {
                 <Link
                   key={group.title}
                   to={group.to}
-                  className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft sm:p-6"
+                  className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-brand-surface p-5 hover:border-brand-accent hover:shadow-soft sm:p-6"
                 >
                   <div
-                    className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-accent/10 transition duration-300 group-hover:scale-125"
+                    className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-accent/10"
                     aria-hidden
                   />
                   <div
-                    className="pointer-events-none absolute -bottom-8 -left-4 h-20 w-20 rounded-full bg-brand-primary/5 transition duration-300 group-hover:scale-110"
+                    className="pointer-events-none absolute -bottom-8 -left-4 h-20 w-20 rounded-full bg-brand-primary/5"
                     aria-hidden
                   />
                   <IconBadge className="mb-4">
@@ -95,7 +95,7 @@ export default function Services() {
                   <p className="relative mt-2 text-sm text-brand-text-soft">
                     {group.text}
                   </p>
-                  <span className="relative mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition group-hover:gap-2 group-hover:text-brand-accent">
+                  <span className="relative mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition group-hover:text-brand-accent">
                     Explore <span aria-hidden>→</span>
                   </span>
                 </Link>
@@ -134,7 +134,7 @@ export default function Services() {
               <Link
                 key={title}
                 to={`/services/${slugify(title)}`}
-                className="rounded-lg border border-[#dbdbdb] bg-brand-surface px-4 py-3 text-sm font-medium text-brand-text transition hover:-translate-y-0.5 hover:border-brand-accent hover:text-brand-primary hover:shadow-soft"
+                className="rounded-lg border border-[#dbdbdb] bg-brand-surface px-4 py-3 text-sm font-medium text-brand-text transition hover:border-brand-accent hover:text-brand-primary hover:shadow-soft"
               >
                 {title}
               </Link>

@@ -1,20 +1,41 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ContactForm from './components/ContactForm';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import Home from './pages/Home';
-import ServiceDetail from './pages/ServiceDetail';
-import CategoryPage from './pages/CategoryPage';
-import FinderPage from './pages/FinderPage';
-import ComparePage from './pages/ComparePage';
-import KnowledgePage from './pages/KnowledgePage';
-import KnowledgeArticle from './pages/KnowledgeArticle';
-import IndustriesPage from './pages/IndustriesPage';
-import IndustryDetail from './pages/IndustryDetail';
-import NotFound from './pages/NotFound';
-import LegalPage from './pages/LegalPage';
+import SiteSkeleton from './components/SiteSkeleton';
+
+const Home = lazy(() => import('./pages/Home'));
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
+const CategoryPage = lazy(() => import('./pages/CategoryPage'));
+const FinderPage = lazy(() => import('./pages/FinderPage'));
+const ComparePage = lazy(() => import('./pages/ComparePage'));
+const KnowledgePage = lazy(() => import('./pages/KnowledgePage'));
+const KnowledgeArticle = lazy(() => import('./pages/KnowledgeArticle'));
+const IndustriesPage = lazy(() => import('./pages/IndustriesPage'));
+const IndustryDetail = lazy(() => import('./pages/IndustryDetail'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const LegalPage = lazy(() => import('./pages/LegalPage'));
+
+function PageContent({ children }) {
+  const { pathname } = useLocation();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(false);
+    const timer = window.setTimeout(() => setReady(true), 420);
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
+
+  return (
+    <>
+      <div hidden={!ready}>{children}</div>
+      {ready ? null : <SiteSkeleton />}
+    </>
+  );
+}
 
 function App() {
   return (
@@ -23,6 +44,8 @@ function App() {
       <div className="min-h-screen">
         <Navbar />
         <main>
+          <Suspense fallback={<SiteSkeleton />}>
+          <PageContent>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/finder" element={<FinderPage />} />
@@ -48,6 +71,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ContactForm />
+          </PageContent>
+          </Suspense>
         </main>
         <Footer />
         <WhatsAppFloat />

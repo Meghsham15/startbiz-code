@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 /**
  * Reserves the image box, shows a shimmer until the file has fully decoded,
- * then fades the picture in. Hiding the img until onLoad avoids the
+ * then shows the picture. Hiding the img until onLoad avoids the
  * top-strip paint that large files show on a slow connection.
  */
 export default function OptimizedImage({
@@ -25,7 +25,7 @@ export default function OptimizedImage({
 
   return (
     <div
-      className={`relative overflow-hidden bg-[#e8eef0] ${fill ? 'h-full w-full' : ''} ${className}`}
+      className={`relative overflow-hidden bg-[#d5e4e7] ${fill ? 'h-full w-full' : ''} ${className}`}
       style={!fill && width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
     >
       {!ready && !failed ? <div className="img-skeleton absolute inset-0" aria-hidden="true" /> : null}
@@ -40,14 +40,14 @@ export default function OptimizedImage({
           width={width}
           height={height}
           decoding="async"
-          loading={priority ? 'eager' : 'lazy'}
+          loading="eager"
           fetchPriority={priority ? 'high' : 'auto'}
           ref={(node) => {
             if (node && node.complete && node.naturalWidth > 0) setReady(true);
           }}
           onLoad={() => setReady(true)}
           onError={() => setFailed(true)}
-          className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${imgClassName} ${
+          className={`absolute inset-0 h-full w-full ${imgClassName} ${
             ready ? 'opacity-100' : 'opacity-0'
           }`}
         />

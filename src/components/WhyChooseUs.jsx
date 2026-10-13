@@ -26,10 +26,10 @@ export default function WhyChooseUs() {
             return (
               <article
                 key={feature.title}
-                className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft sm:p-6"
+                className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-white p-5 hover:border-brand-accent hover:shadow-soft sm:p-6"
               >
                 <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-accent/10 transition duration-300 group-hover:scale-125"
+                  className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-accent/10"
                   aria-hidden
                 />
                 <IconBadge className="mb-4">

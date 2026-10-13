@@ -30,7 +30,7 @@ export default function PopularServices() {
           {featured.map((service) => (
             <article
               key={service.slug}
-              className="flex flex-col rounded-xl border border-[#e6e6e6] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-soft"
+              className="flex flex-col rounded-xl border border-[#e6e6e6] bg-white p-5 hover:border-brand-primary hover:shadow-soft"
             >
               <h3 className="font-display text-lg font-semibold text-brand-text">
                 {service.title}

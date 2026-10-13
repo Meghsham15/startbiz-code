@@ -536,7 +536,7 @@ export default function ServiceDetail() {
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
-                    className="rounded-2xl border border-[#eee] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-soft"
+                    className="rounded-2xl border border-[#eee] bg-white p-5 hover:border-brand-primary hover:shadow-soft"
                   >
                     <h3 className="font-semibold text-brand-text">{item.title}</h3>
                     <p className="mt-2 line-clamp-3 text-sm text-brand-text-soft">{item.summary}</p>

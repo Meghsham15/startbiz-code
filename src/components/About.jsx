@@ -34,7 +34,7 @@ export default function About() {
               Find My Business Requirements →
             </Link>
             <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="rounded-xl bg-white p-4 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md">
+              <div className="rounded-xl bg-white p-4 shadow-soft transition hover:shadow-md">
                 <p className="font-display text-2xl font-semibold text-brand-accent">
                   500+
                 </p>
@@ -42,7 +42,7 @@ export default function About() {
                   Businesses Served
                 </p>
               </div>
-              <div className="rounded-xl bg-white p-4 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md">
+              <div className="rounded-xl bg-white p-4 shadow-soft transition hover:shadow-md">
                 <p className="font-display text-2xl font-semibold text-brand-accent">
                   MH
                 </p>
@@ -77,10 +77,10 @@ export default function About() {
               return (
                 <article
                   key={item.title}
-                  className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft"
+                  className="group relative overflow-hidden rounded-xl border border-[#dbdbdb] bg-white p-5 hover:border-brand-accent hover:shadow-soft"
                 >
                   <div
-                    className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-primary/5 transition group-hover:scale-125"
+                    className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-primary/5 transition"
                     aria-hidden
                   />
                   <IconBadge className="mb-3">
@@ -108,14 +108,14 @@ export default function About() {
               <Link
                 key={item.title}
                 to={item.to}
-                className="group flex flex-col overflow-hidden rounded-xl border border-[#dbdbdb] bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft"
+                className="group flex flex-col overflow-hidden rounded-xl border border-[#dbdbdb] bg-white hover:border-brand-accent hover:shadow-soft"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-brand-muted">
                   <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     fill
-                    imgClassName="object-cover transition duration-500 group-hover:scale-[1.04]"
+                    imgClassName="object-cover"
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 border-t border-[#dbdbdb] px-4 py-4">
@@ -123,7 +123,7 @@ export default function About() {
                     {item.title}
                   </h4>
                   <p className="text-sm text-brand-text-soft">{item.text}</p>
-                  <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition group-hover:gap-2 group-hover:text-brand-accent">
+                  <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition group-hover:text-brand-accent">
                     Explore options <span aria-hidden>→</span>
                   </span>
                 </div>

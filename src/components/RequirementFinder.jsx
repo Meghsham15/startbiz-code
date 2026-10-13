@@ -90,7 +90,7 @@ export default function RequirementFinder({ embedded = false }) {
     setAnswers(empty);
     setStep(0);
     setDone(false);
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   };
 
   const printChecklist = () => window.print();

@@ -2,61 +2,9 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { searchServices, serviceCount } from '../data/content';
 
-function useTypedPlaceholder(phrases, active) {
-  const phraseKey = phrases.join('\n');
-  const [typed, setTyped] = useState(phrases[0] || '');
-
-  useEffect(() => {
-    const list = phraseKey.split('\n').filter(Boolean);
-    if (!active || list.length === 0) return undefined;
-    const reduce =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
-      setTyped(list[0]);
-      return undefined;
-    }
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    let timer = 0;
-
-    const tick = () => {
-      const phrase = list[phraseIndex];
-      if (!deleting) {
-        charIndex += 1;
-        setTyped(phrase.slice(0, charIndex));
-        if (charIndex >= phrase.length) {
-          deleting = true;
-          timer = window.setTimeout(tick, 1400);
-          return;
-        }
-        timer = window.setTimeout(tick, 75);
-        return;
-      }
-      charIndex -= 1;
-      setTyped(phrase.slice(0, Math.max(charIndex, 0)));
-      if (charIndex <= 0) {
-        deleting = false;
-        phraseIndex = (phraseIndex + 1) % list.length;
-        timer = window.setTimeout(tick, 280);
-        return;
-      }
-      timer = window.setTimeout(tick, 36);
-    };
-
-    timer = window.setTimeout(tick, 500);
-    return () => window.clearTimeout(timer);
-  }, [active, phraseKey]);
-
-  return typed;
-}
-
 export default function ServiceSearch({
   variant = 'hero',
   placeholder = 'What are you looking for? e.g. start a food business, GST, trademark…',
-  suggestions = [],
   className = '',
   autoFocus = false,
 }) {
@@ -67,8 +15,6 @@ export default function ServiceSearch({
   const listId = useId();
   const navigate = useNavigate();
   const results = searchServices(query);
-  const animatePlaceholder = suggestions.length > 0 && query.length === 0;
-  const typed = useTypedPlaceholder(suggestions, animatePlaceholder);
 
   useEffect(() => {
     const onDoc = (e) => {
@@ -143,7 +89,7 @@ export default function ServiceSearch({
             value={query}
             autoFocus={autoFocus}
             autoComplete="off"
-            placeholder={animatePlaceholder ? '' : placeholder}
+            placeholder={placeholder}
             onChange={(e) => {
               setQuery(e.target.value);
               setOpen(true);
@@ -158,15 +104,6 @@ export default function ServiceSearch({
             aria-controls={`${listId}-list`}
             aria-autocomplete="list"
           />
-          {animatePlaceholder && (
-            <span
-              className="pointer-events-none absolute inset-0 flex items-center truncate text-sm text-brand-text-soft/75 sm:text-base"
-              aria-hidden
-            >
-              Search {typed}
-              <span className="ml-0.5 inline-block h-4 w-px animate-pulse bg-brand-text-soft" />
-            </span>
-          )}
         </div>
         {query && (
           <button

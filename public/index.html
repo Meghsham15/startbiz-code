@@ -73,7 +73,6 @@
       #startbiz-loader img {
         width: min(16rem, 70vw);
         height: auto;
-        animation: startbiz-logo-in 0.7s ease both;
       }
       .startbiz-loader-bar {
         width: 8.5rem;
@@ -90,22 +89,9 @@
         background: linear-gradient(90deg, #007a8a, #f48c31);
         animation: startbiz-loader-slide 1.05s ease-in-out infinite;
       }
-      @keyframes startbiz-logo-in {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
       @keyframes startbiz-loader-slide {
         0% { transform: translateX(-130%); }
         100% { transform: translateX(280%); }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        #startbiz-loader img,
-        .startbiz-loader-bar span {
-          animation: none;
-        }
-        .startbiz-loader-bar span {
-          width: 100%;
-        }
       }
       @media (scripting: none) {
         #startbiz-loader { display: none; }

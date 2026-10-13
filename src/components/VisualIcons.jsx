@@ -3,7 +3,7 @@
 export function IconBadge({ children, className = '' }) {
   return (
     <div
-      className={`relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-brand-primary shadow-soft ring-1 ring-[#dbdbdb] transition duration-300 group-hover:-translate-y-0.5 group-hover:text-brand-accent group-hover:ring-brand-accent/40 ${className}`}
+      className={`relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-brand-primary shadow-soft ring-1 ring-[#dbdbdb] group-hover:text-brand-accent group-hover:ring-brand-accent/40 ${className}`}
     >
       <svg
         viewBox="0 0 48 48"
@@ -314,7 +314,7 @@ export function IconGov() {
 
 export function IconStep({ n }) {
   return (
-    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white shadow-soft transition duration-300 group-hover:bg-brand-accent">
+    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white shadow-soft group-hover:bg-brand-accent">
       {n}
     </span>
   );

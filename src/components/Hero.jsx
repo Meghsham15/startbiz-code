@@ -4,14 +4,6 @@ import { asset } from '../utils/asset';
 import OptimizedImage from './OptimizedImage';
 import ServiceSearch from './ServiceSearch';
 
-const searchSuggestions = [
-  'Trademark Registration',
-  'Company Registration',
-  'GST Registration',
-  'MSME Registration',
-  'FSSAI Registration',
-];
-
 const quickLinks = [
   { label: 'Trademark Registration', to: '/services/trademark-registration' },
   { label: 'Company Registration', to: '/services/private-limited-company-registration' },
@@ -30,7 +22,7 @@ export default function Hero() {
   return (
     <section id="home" className="bg-white pt-[68px]">
       <div className="section-wrap grid items-center gap-10 py-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-16">
-        <div className="animate-fadeUp">
+        <div>
           <p className="text-sm font-semibold text-brand-accent sm:text-base">
             {brand.tagline}
           </p>
@@ -60,7 +52,6 @@ export default function Hero() {
           <ServiceSearch
             variant="hero"
             className="mt-6 max-w-xl"
-            suggestions={searchSuggestions}
           />
           <p className="mt-3 text-sm text-brand-text-soft">
             Most requested:{' '}
