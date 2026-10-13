@@ -1,15 +1,39 @@
 {
   "files": {
-    "main.css": "/startbiz-code/static/css/main.9608fe95.css",
-    "main.js": "/startbiz-code/static/js/main.4bf6ce81.js",
+    "main.css": "/startbiz-code/static/css/main.f0681f83.css",
+    "main.js": "/startbiz-code/static/js/main.be97c156.js",
+    "static/js/437.b07f29df.chunk.js": "/startbiz-code/static/js/437.b07f29df.chunk.js",
+    "static/js/971.3d5b020b.chunk.js": "/startbiz-code/static/js/971.3d5b020b.chunk.js",
+    "static/js/284.4a9c9b9e.chunk.js": "/startbiz-code/static/js/284.4a9c9b9e.chunk.js",
+    "static/js/564.c991ff91.chunk.js": "/startbiz-code/static/js/564.c991ff91.chunk.js",
+    "static/js/149.d810e6dd.chunk.js": "/startbiz-code/static/js/149.d810e6dd.chunk.js",
+    "static/js/752.b01348bc.chunk.js": "/startbiz-code/static/js/752.b01348bc.chunk.js",
+    "static/js/127.b313760c.chunk.js": "/startbiz-code/static/js/127.b313760c.chunk.js",
+    "static/js/694.bc0ff58b.chunk.js": "/startbiz-code/static/js/694.bc0ff58b.chunk.js",
+    "static/js/800.2c1734e4.chunk.js": "/startbiz-code/static/js/800.2c1734e4.chunk.js",
+    "static/js/44.907e9307.chunk.js": "/startbiz-code/static/js/44.907e9307.chunk.js",
+    "static/js/599.28d8f64a.chunk.js": "/startbiz-code/static/js/599.28d8f64a.chunk.js",
     "static/js/453.f2ce2fc5.chunk.js": "/startbiz-code/static/js/453.f2ce2fc5.chunk.js",
+    "static/js/770.c06d9a40.chunk.js": "/startbiz-code/static/js/770.c06d9a40.chunk.js",
     "index.html": "/startbiz-code/index.html",
-    "main.9608fe95.css.map": "/startbiz-code/static/css/main.9608fe95.css.map",
-    "main.4bf6ce81.js.map": "/startbiz-code/static/js/main.4bf6ce81.js.map",
-    "453.f2ce2fc5.chunk.js.map": "/startbiz-code/static/js/453.f2ce2fc5.chunk.js.map"
+    "main.f0681f83.css.map": "/startbiz-code/static/css/main.f0681f83.css.map",
+    "main.be97c156.js.map": "/startbiz-code/static/js/main.be97c156.js.map",
+    "437.b07f29df.chunk.js.map": "/startbiz-code/static/js/437.b07f29df.chunk.js.map",
+    "971.3d5b020b.chunk.js.map": "/startbiz-code/static/js/971.3d5b020b.chunk.js.map",
+    "284.4a9c9b9e.chunk.js.map": "/startbiz-code/static/js/284.4a9c9b9e.chunk.js.map",
+    "564.c991ff91.chunk.js.map": "/startbiz-code/static/js/564.c991ff91.chunk.js.map",
+    "149.d810e6dd.chunk.js.map": "/startbiz-code/static/js/149.d810e6dd.chunk.js.map",
+    "752.b01348bc.chunk.js.map": "/startbiz-code/static/js/752.b01348bc.chunk.js.map",
+    "127.b313760c.chunk.js.map": "/startbiz-code/static/js/127.b313760c.chunk.js.map",
+    "694.bc0ff58b.chunk.js.map": "/startbiz-code/static/js/694.bc0ff58b.chunk.js.map",
+    "800.2c1734e4.chunk.js.map": "/startbiz-code/static/js/800.2c1734e4.chunk.js.map",
+    "44.907e9307.chunk.js.map": "/startbiz-code/static/js/44.907e9307.chunk.js.map",
+    "599.28d8f64a.chunk.js.map": "/startbiz-code/static/js/599.28d8f64a.chunk.js.map",
+    "453.f2ce2fc5.chunk.js.map": "/startbiz-code/static/js/453.f2ce2fc5.chunk.js.map",
+    "770.c06d9a40.chunk.js.map": "/startbiz-code/static/js/770.c06d9a40.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9608fe95.css",
-    "static/js/main.4bf6ce81.js"
+    "static/css/main.f0681f83.css",
+    "static/js/main.be97c156.js"
   ]
 }
