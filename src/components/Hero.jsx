@@ -4,6 +4,14 @@ import { asset } from '../utils/asset';
 import OptimizedImage from './OptimizedImage';
 import ServiceSearch from './ServiceSearch';
 
+const searchSuggestions = [
+  'Trademark Registration',
+  'Company Registration',
+  'GST Registration',
+  'MSME Registration',
+  'FSSAI Registration',
+];
+
 const quickLinks = [
   { label: 'Trademark Registration', to: '/services/trademark-registration' },
   { label: 'Company Registration', to: '/services/private-limited-company-registration' },
@@ -52,6 +60,7 @@ export default function Hero() {
           <ServiceSearch
             variant="hero"
             className="mt-6 max-w-xl"
+            suggestions={searchSuggestions}
           />
           <p className="mt-3 text-sm text-brand-text-soft">
             Most requested:{' '}

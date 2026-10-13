@@ -94,3 +94,13 @@
 #root .img-skeleton {
   animation: img-shimmer 1.15s ease-in-out infinite !important;
 }
+
+#root .search-caret {
+  animation: search-caret 1s steps(1) infinite !important;
+}
+
+@keyframes search-caret {
+  50% {
+    opacity: 0;
+  }
+}
