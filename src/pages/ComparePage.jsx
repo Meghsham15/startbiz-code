@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import StructureTable from '../components/StructureTable';
 import { brand } from '../data/content';
-import { structureComparison, structureGuide } from '../data/strategyContent';
+import { structureGuide } from '../data/strategyContent';
 
 function hrefFor(slug) {
   return slug.startsWith('/') ? slug : `/services/${slug}`;
@@ -15,7 +16,7 @@ export default function ComparePage() {
         description="Compare proprietorship, LLP and private limited company on owners, liability, compliance and funding — then talk to Startbiz."
         path="/compare"
       />
-      <section className="border-b border-[#dbdbdb] bg-white pt-[72px] sm:pt-20">
+      <section className="border-b border-[#eee] bg-white pt-[68px]">
         <div className="section-wrap py-10 sm:py-14">
           <nav className="mb-5 text-sm text-brand-text-soft">
             <Link to="/" className="hover:text-brand-primary">
@@ -37,30 +38,7 @@ export default function ComparePage() {
 
       <section className="py-12 sm:py-16">
         <div className="section-wrap">
-          <div className="overflow-x-auto rounded-xl border border-[#dbdbdb] bg-white">
-            <table className="min-w-full text-left text-sm">
-              <thead className="bg-brand-primary text-white">
-                <tr>
-                  {structureComparison.headers.map((h) => (
-                    <th key={h} className="px-4 py-3 font-semibold sm:px-5">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {structureComparison.rows.map((row, i) => (
-                  <tr key={row[0]} className={i % 2 ? 'bg-brand-surface' : 'bg-white'}>
-                    {row.map((cell, j) => (
-                      <td key={`${i}-${j}`} className="px-4 py-3 text-brand-text sm:px-5">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <StructureTable />
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {structureGuide.map((row) => (

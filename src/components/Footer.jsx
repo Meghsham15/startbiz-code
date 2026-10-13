@@ -39,6 +39,22 @@ const footerColumns = [
 export default function Footer() {
   return (
     <footer className="bg-brand-dark text-white">
+      <div className="border-b border-white/10 bg-brand-navy">
+        <div className="section-wrap grid gap-4 py-5 sm:grid-cols-3">
+          <a href={brand.phoneHref} className="text-sm">
+            <span className="block text-xs uppercase tracking-wider text-white/50">Call us</span>
+            <span className="mt-1 block font-semibold">{brand.phone}</span>
+          </a>
+          <a href="#contact" className="text-sm">
+            <span className="block text-xs uppercase tracking-wider text-white/50">Contact us</span>
+            <span className="mt-1 block font-semibold">Send an enquiry</span>
+          </a>
+          <a href={brand.emailHref} className="text-sm">
+            <span className="block text-xs uppercase tracking-wider text-white/50">Email</span>
+            <span className="mt-1 block break-all font-semibold">{brand.email}</span>
+          </a>
+        </div>
+      </div>
       <div className="section-wrap py-10 sm:py-12 lg:py-14">
         <div className="mb-8 max-w-xl">
           <Link to="/" className="inline-block">

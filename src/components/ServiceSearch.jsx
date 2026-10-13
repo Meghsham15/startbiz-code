@@ -2,9 +2,61 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { searchServices, serviceCount } from '../data/content';
 
+function useTypedPlaceholder(phrases, active) {
+  const phraseKey = phrases.join('\n');
+  const [typed, setTyped] = useState(phrases[0] || '');
+
+  useEffect(() => {
+    const list = phraseKey.split('\n').filter(Boolean);
+    if (!active || list.length === 0) return undefined;
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setTyped(list[0]);
+      return undefined;
+    }
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let timer = 0;
+
+    const tick = () => {
+      const phrase = list[phraseIndex];
+      if (!deleting) {
+        charIndex += 1;
+        setTyped(phrase.slice(0, charIndex));
+        if (charIndex >= phrase.length) {
+          deleting = true;
+          timer = window.setTimeout(tick, 1400);
+          return;
+        }
+        timer = window.setTimeout(tick, 75);
+        return;
+      }
+      charIndex -= 1;
+      setTyped(phrase.slice(0, Math.max(charIndex, 0)));
+      if (charIndex <= 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % list.length;
+        timer = window.setTimeout(tick, 280);
+        return;
+      }
+      timer = window.setTimeout(tick, 36);
+    };
+
+    timer = window.setTimeout(tick, 500);
+    return () => window.clearTimeout(timer);
+  }, [active, phraseKey]);
+
+  return typed;
+}
+
 export default function ServiceSearch({
   variant = 'hero',
   placeholder = 'What are you looking for? e.g. start a food business, GST, trademark…',
+  suggestions = [],
   className = '',
   autoFocus = false,
 }) {
@@ -15,6 +67,8 @@ export default function ServiceSearch({
   const listId = useId();
   const navigate = useNavigate();
   const results = searchServices(query);
+  const animatePlaceholder = suggestions.length > 0 && query.length === 0;
+  const typed = useTypedPlaceholder(suggestions, animatePlaceholder);
 
   useEffect(() => {
     const onDoc = (e) => {
@@ -67,7 +121,7 @@ export default function ServiceSearch({
       <div
         className={`flex items-center gap-2 rounded-lg border bg-white shadow-soft transition focus-within:ring-2 focus-within:ring-brand-accent/40 ${
           isHero
-            ? 'border-white/20 px-3 py-2.5 sm:px-4 sm:py-3'
+            ? 'rounded-xl border-[#e4e4e4] px-4 py-3 shadow-soft'
             : 'border-[#dbdbdb] px-2.5 py-1.5'
         } ${isNav ? 'w-full max-w-xs' : 'w-full'}`}
       >
@@ -82,27 +136,38 @@ export default function ServiceSearch({
           <circle cx="11" cy="11" r="7" />
           <path strokeLinecap="round" d="m20 20-3.5-3.5" />
         </svg>
-        <input
-          id={listId}
-          type="search"
-          value={query}
-          autoFocus={autoFocus}
-          autoComplete="off"
-          placeholder={placeholder}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setOpen(true);
-          }}
-          onFocus={() => setOpen(true)}
-          onKeyDown={onKeyDown}
-          className={`w-full bg-transparent text-brand-text outline-none placeholder:text-brand-text-soft/70 ${
-            isHero ? 'text-sm sm:text-base' : 'text-sm'
-          }`}
-          role="combobox"
-          aria-expanded={open && results.length > 0}
-          aria-controls={`${listId}-list`}
-          aria-autocomplete="list"
-        />
+        <div className="relative min-w-0 flex-1">
+          <input
+            id={listId}
+            type="search"
+            value={query}
+            autoFocus={autoFocus}
+            autoComplete="off"
+            placeholder={animatePlaceholder ? '' : placeholder}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setOpen(true);
+            }}
+            onFocus={() => setOpen(true)}
+            onKeyDown={onKeyDown}
+            className={`w-full bg-transparent text-brand-text outline-none placeholder:text-brand-text-soft/70 ${
+              isHero ? 'text-sm sm:text-base' : 'text-sm'
+            }`}
+            role="combobox"
+            aria-expanded={open && results.length > 0}
+            aria-controls={`${listId}-list`}
+            aria-autocomplete="list"
+          />
+          {animatePlaceholder && (
+            <span
+              className="pointer-events-none absolute inset-0 flex items-center truncate text-sm text-brand-text-soft/75 sm:text-base"
+              aria-hidden
+            >
+              Search {typed}
+              <span className="ml-0.5 inline-block h-4 w-px animate-pulse bg-brand-text-soft" />
+            </span>
+          )}
+        </div>
         {query && (
           <button
             type="button"

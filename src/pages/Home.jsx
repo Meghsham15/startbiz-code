@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import PopularServices from '../components/PopularServices';
 import TrustBar from '../components/TrustBar';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Services from '../components/Services';
@@ -31,6 +32,7 @@ export default function Home() {
         jsonLd={jsonLd}
       />
       <Hero />
+      <PopularServices />
       <TrustBar />
       <ProblemPathways />
       <SolutionFinderSection />

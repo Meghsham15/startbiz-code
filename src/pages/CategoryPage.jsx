@@ -35,7 +35,7 @@ export default function CategoryPage() {
         jsonLd={jsonLd}
       />
 
-      <section className="border-b border-[#dbdbdb] bg-white pt-[72px] sm:pt-20">
+      <section className="border-b border-[#eee] bg-white pt-[68px]">
         <div className="section-wrap py-10 sm:py-14">
           <nav className="mb-5 text-sm text-brand-text-soft">
             <Link to="/" className="hover:text-brand-primary">
@@ -77,7 +77,7 @@ export default function CategoryPage() {
                     <Link
                       key={title}
                       to={`/services/${slug}`}
-                      className="group rounded-xl border border-[#dbdbdb] bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-soft"
+                      className="group rounded-2xl border border-[#eee] bg-white p-5 transition hover:border-brand-primary hover:shadow-soft"
                     >
                       <h3 className="text-base font-semibold text-brand-text group-hover:text-brand-primary">
                         {title}
@@ -87,7 +87,7 @@ export default function CategoryPage() {
                           `${title} support from ${brand.name}.`}
                       </p>
                       <span className="mt-4 inline-flex text-sm font-semibold text-brand-primary">
-                        View details →
+                        Know more
                       </span>
                     </Link>
                   );

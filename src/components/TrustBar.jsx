@@ -11,7 +11,7 @@ const trustIcons = [IconUsers, IconMapPin, IconLayers, IconCompass];
 
 export default function TrustBar() {
   return (
-    <section className="relative z-10 -mt-6 sm:-mt-8">
+    <section className="relative z-10 bg-white pb-4">
       <div className="section-wrap">
         <div className="overflow-hidden rounded-xl bg-white shadow-soft">
           <p className="border-b border-brand-muted px-4 py-3 text-center text-sm font-semibold text-brand-primary sm:text-base">

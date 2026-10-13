@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RequirementFinder from './RequirementFinder';
+import StructureTable from './StructureTable';
 import {
   askStartbizExamples,
   customerProcess,
@@ -13,7 +14,6 @@ import {
   solutionBusinessTypes,
   solutionGoals,
   solutionRecommendations,
-  structureComparison,
   structureGuide,
   whyDifferent,
 } from '../data/strategyContent';
@@ -458,29 +458,8 @@ export function StructureSection() {
         <h2 className="heading mt-2 text-2xl sm:text-3xl">
           Which business structure may fit you?
         </h2>
-        <div className="mt-8 overflow-x-auto rounded-xl border border-[#dbdbdb] bg-white">
-          <table className="min-w-full text-left text-sm">
-            <thead className="bg-brand-primary text-white">
-              <tr>
-                {structureComparison.headers.map((h) => (
-                  <th key={h} className="px-4 py-3 font-semibold">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {structureComparison.rows.map((row, i) => (
-                <tr key={row[0]} className={i % 2 ? 'bg-brand-surface' : 'bg-white'}>
-                  {row.map((cell, j) => (
-                    <td key={`${i}-${j}`} className="px-4 py-3 text-brand-text">
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-8">
+          <StructureTable />
         </div>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {structureGuide.map((row) => (
