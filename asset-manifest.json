@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/startbiz-code/static/css/main.c6af997b.css",
-    "main.js": "/startbiz-code/static/js/main.a189a7fd.js",
+    "main.css": "/startbiz-code/static/css/main.dcd10d41.css",
+    "main.js": "/startbiz-code/static/js/main.c9da0147.js",
     "static/js/453.f2ce2fc5.chunk.js": "/startbiz-code/static/js/453.f2ce2fc5.chunk.js",
     "index.html": "/startbiz-code/index.html",
-    "main.c6af997b.css.map": "/startbiz-code/static/css/main.c6af997b.css.map",
-    "main.a189a7fd.js.map": "/startbiz-code/static/js/main.a189a7fd.js.map",
+    "main.dcd10d41.css.map": "/startbiz-code/static/css/main.dcd10d41.css.map",
+    "main.c9da0147.js.map": "/startbiz-code/static/js/main.c9da0147.js.map",
     "453.f2ce2fc5.chunk.js.map": "/startbiz-code/static/js/453.f2ce2fc5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6af997b.css",
-    "static/js/main.a189a7fd.js"
+    "static/css/main.dcd10d41.css",
+    "static/js/main.c9da0147.js"
   ]
 }
