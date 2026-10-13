@@ -1,4 +1,5 @@
 import { brand, getWhatsAppUrl } from '../data/content';
+import { asset } from '../utils/asset';
 
 const SOLUTION_MESSAGE = 'I need a business solutions';
 
@@ -126,7 +127,7 @@ export default function ContactForm() {
               className="mt-5 rounded-xl border border-[#dbdbdb] bg-white p-3 transition hover:border-brand-accent"
             >
               <img
-                src="/images/whatsapp-qr.png"
+                src={asset('/images/whatsapp-qr.png')}
                 alt={`WhatsApp QR code for ${brand.phone} — I need a business solutions`}
                 width={256}
                 height={256}

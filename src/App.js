@@ -18,7 +18,7 @@ import LegalPage from './pages/LegalPage';
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
       <ScrollToTop />
       <div className="min-h-screen">
         <Navbar />
