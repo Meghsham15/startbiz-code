@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
+import OptimizedImage from '../components/OptimizedImage';
+import Reveal from '../components/Reveal';
 import Seo, { breadcrumbSchema, serviceSchema } from '../components/Seo';
 import StructureTable, { ServiceFactTable } from '../components/StructureTable';
 import {
@@ -12,6 +14,27 @@ import {
 } from '../data/content';
 import { STANDARD_PROCESS } from '../data/serviceGuides';
 import { getServiceFacts, structureColumns } from '../data/structureTables';
+import { absoluteUrl } from '../data/site';
+import { sitePath } from '../utils/asset';
+
+const SERVICE_POSTER = {
+  'fssai-registration.webp': [960, 639],
+  'gst-registration.webp': [960, 640],
+  'import-export-code-registration.webp': [960, 960],
+  'iso-certification.webp': [960, 960],
+  'limited-liability-partnership-registration.webp': [960, 639],
+  'one-person-company-registration.webp': [960, 639],
+  'partnership-firm-registration.webp': [960, 640],
+  'private-limited-company-registration.webp': [960, 640],
+  'shop-and-establishment-registration.webp': [960, 639],
+  'trademark-registration.webp': [960, 960],
+  'udyam-msme-registration.webp': [960, 639],
+};
+
+function posterSize(src = '') {
+  const name = src.split('/').pop();
+  return SERVICE_POSTER[name] || [960, 640];
+}
 
 function CheckItem({ children }) {
   return (
@@ -139,6 +162,9 @@ export default function ServiceDetail() {
   const hiddenCount = Math.max(included.length - previewPoints.length, 0);
   const visiblePoints = showAllPoints ? included : previewPoints;
   const highlights = trustStats.slice(0, 3);
+  const [posterWidth, posterHeight] = posterSize(service.image);
+  const posterUrl = service.image ? absoluteUrl(sitePath(service.image)) : undefined;
+  const tallPoster = posterHeight / posterWidth >= 0.9;
   const sections = [
     { id: 'overview', label: 'Overview' },
     included.length ? { id: 'included', label: "What's included" } : null,
@@ -157,6 +183,7 @@ export default function ServiceDetail() {
         description={pageDescription}
         keywords={pageKeywords}
         path={servicePath}
+        image={posterUrl}
         jsonLd={[
           breadcrumbSchema(crumbs),
           serviceSchema({
@@ -164,6 +191,7 @@ export default function ServiceDetail() {
             description: pageDescription,
             path: servicePath,
             category: service.category,
+            image: posterUrl,
           }),
         ]}
       />
@@ -171,7 +199,11 @@ export default function ServiceDetail() {
       <div className="bg-[#f6f7f8] pt-[68px]">
         <div
           className={`section-wrap grid items-start gap-8 py-8 sm:py-10 lg:py-12 ${
-            service.image ? 'lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-x-12' : ''
+            service.image
+              ? tallPoster
+                ? 'lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-x-12'
+                : 'lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,30rem)] lg:gap-x-12'
+              : ''
           }`}
         >
           <div>
@@ -238,21 +270,22 @@ export default function ServiceDetail() {
           </div>
 
           {service.image ? (
-            <aside>
+            <aside className={tallPoster ? 'mx-auto w-full max-w-[22rem] lg:mx-0 lg:justify-self-end' : undefined}>
               <div className="overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white shadow-soft">
-                <img
+                <OptimizedImage
                   src={service.image}
-                  alt=""
-                  width="1024"
-                  height="768"
-                  className="max-h-[70vh] w-full bg-white object-contain object-top"
+                  alt={`${service.title} service overview`}
+                  width={posterWidth}
+                  height={posterHeight}
+                  priority
+                  imgClassName="bg-white object-contain object-top"
                 />
               </div>
             </aside>
           ) : null}
         </div>
 
-        <div className="section-wrap pb-12">
+        <Reveal className="section-wrap pb-12">
           <div className="min-w-0">
             <nav
               aria-label="On this page"
@@ -503,7 +536,7 @@ export default function ServiceDetail() {
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
-                    className="rounded-2xl border border-[#eee] bg-white p-5 transition hover:border-brand-primary hover:shadow-soft"
+                    className="rounded-2xl border border-[#eee] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-primary hover:shadow-soft"
                   >
                     <h3 className="font-semibold text-brand-text">{item.title}</h3>
                     <p className="mt-2 line-clamp-3 text-sm text-brand-text-soft">{item.summary}</p>
@@ -518,7 +551,7 @@ export default function ServiceDetail() {
               </Link>
             </section>
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

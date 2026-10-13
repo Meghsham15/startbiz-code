@@ -179,13 +179,14 @@ export function faqSchema(faqs) {
   };
 }
 
-export function serviceSchema({ name, description, path, category }) {
+export function serviceSchema({ name, description, path, category, image }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name,
     description,
     url: absoluteUrl(path),
+    ...(image ? { image } : {}),
     provider: { '@id': `${SITE_URL}/#organization` },
     areaServed: { '@type': 'State', name: 'Maharashtra' },
     serviceType: category || 'Business Registration',

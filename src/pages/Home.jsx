@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import Reveal from '../components/Reveal';
 import PopularServices from '../components/PopularServices';
 import TrustBar from '../components/TrustBar';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -32,17 +33,39 @@ export default function Home() {
         jsonLd={jsonLd}
       />
       <Hero />
-      <PopularServices />
-      <TrustBar />
-      <ProblemPathways />
-      <SolutionFinderSection />
-      <Services />
-      <JourneySection />
-      <WhyChooseUs />
-      <AskStartbizSection />
-      <FaqSection />
-      <About />
-      <FinalCta />
+      <Reveal>
+        <PopularServices />
+      </Reveal>
+      <Reveal>
+        <TrustBar />
+      </Reveal>
+      <Reveal>
+        <ProblemPathways />
+      </Reveal>
+      <Reveal>
+        <SolutionFinderSection />
+      </Reveal>
+      <Reveal>
+        <Services />
+      </Reveal>
+      <Reveal>
+        <JourneySection />
+      </Reveal>
+      <Reveal>
+        <WhyChooseUs />
+      </Reveal>
+      <Reveal>
+        <AskStartbizSection />
+      </Reveal>
+      <Reveal>
+        <FaqSection />
+      </Reveal>
+      <Reveal>
+        <About />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
     </>
   );
 }

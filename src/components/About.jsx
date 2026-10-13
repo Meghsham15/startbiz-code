@@ -5,6 +5,7 @@ import {
   brand,
   exploreSolutions,
 } from '../data/content';
+import OptimizedImage from './OptimizedImage';
 import {
   IconBadge,
   differentiatorIcons,
@@ -55,10 +56,12 @@ export default function About() {
           <div className="relative order-1 lg:order-2">
             <div className="absolute -left-3 -top-3 h-20 w-20 rounded-full bg-brand-accent/20 blur-2xl sm:-left-4 sm:-top-4 sm:h-24 sm:w-24" />
             <div className="absolute -bottom-4 -right-3 h-24 w-24 rounded-full bg-brand-primary/15 blur-2xl sm:-bottom-6 sm:-right-4 sm:h-28 sm:w-28" />
-            <img
+            <OptimizedImage
               src={brand.cover}
               alt={`${brand.name} business consulting services overview`}
-              className="relative h-auto w-full rounded-2xl object-contain shadow-soft"
+              width={1200}
+              height={675}
+              className="relative w-full rounded-2xl shadow-soft"
             />
           </div>
         </div>
@@ -108,11 +111,11 @@ export default function About() {
                 className="group flex flex-col overflow-hidden rounded-xl border border-[#dbdbdb] bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-soft"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-brand-muted">
-                  <img
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-                    loading="lazy"
+                    fill
+                    imgClassName="object-cover transition duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 border-t border-[#dbdbdb] px-4 py-4">

@@ -51,16 +51,16 @@ export const brand = {
     'start a business Maharashtra',
     'startbiz.in',
   ],
-  phone: '+91 75192 21199',
-  phoneHref: 'tel:+917519221199',
-  whatsapp: '917519221199',
+  phone: '+91 70389 84692',
+  phoneHref: 'tel:+917038984692',
+  whatsapp: '917038984692',
   whatsappMessage:
     'Hello Startbiz, I need help with my business.\nMy business type is ________.\nI want to ________.',
   email: 'startbiz.in@gmail.com',
   emailHref: 'mailto:startbiz.in@gmail.com',
   contactPerson: 'Amol Ghoderao',
-  logo: asset('/images/logo-transparent.png'),
-  logoDark: asset('/images/logo-transparent.png'),
+  logo: asset('/images/logo-transparent.webp'),
+  logoDark: asset('/images/logo-transparent.webp'),
   cover: asset('/images/cover.webp'),
   texture: asset('/textures/asfalt-dark.png'),
   textureAlt: asset('/textures/debut-dark.png'),
@@ -163,25 +163,25 @@ export const exploreSolutions = [
     title: 'Starting a new business?',
     text: 'Understand your structure and initial registrations.',
     to: '/category/start-business',
-    image: asset('/images/solutions/start-business.jpg'),
+    image: asset('/images/solutions/start-business.webp'),
   },
   {
     title: 'Starting a food business?',
     text: 'Explore FSSAI and other potentially relevant requirements.',
     to: '/services/fssai-registration',
-    image: asset('/images/solutions/food-business.jpg'),
+    image: asset('/images/solutions/food-business.webp'),
   },
   {
     title: 'Selling products online?',
     text: 'Check GST and other requirements for your sales model.',
     to: '/finder?stage=running',
-    image: asset('/images/solutions/online-business.jpg'),
+    image: asset('/images/solutions/online-business.webp'),
   },
   {
     title: 'Planning to grow?',
     text: 'Explore MSME, certification and business expansion support.',
     to: '/category/grow-your-business',
-    image: asset('/images/solutions/grow-business.jpg'),
+    image: asset('/images/solutions/grow-business.webp'),
   },
 ];
 
@@ -190,7 +190,7 @@ export const services = [
     id: 1,
     slug: 'gst-registration',
     title: 'GST Registration',
-    image: asset('/images/services/gst-registration.png'),
+    image: asset('/images/services/gst-registration.webp'),
     summary:
       'GST registration is essential for businesses operating in India. startbiz.in business consulting services help you complete GST registration quickly, accurately, and with full documentation support.',
     points: [
@@ -205,7 +205,7 @@ export const services = [
     id: 2,
     slug: 'llp-registration',
     title: 'LLP Registration',
-    image: asset('/images/services/limited-liability-partnership-registration.png'),
+    image: asset('/images/services/limited-liability-partnership-registration.webp'),
     summary:
       'LLP registration made easy with startbiz.in. Our business consulting services guide you through Limited Liability Partnership registration with full compliance support.',
     points: [
@@ -220,7 +220,7 @@ export const services = [
     id: 3,
     slug: 'shop-act-registration',
     title: 'Shop Act Registration',
-    image: asset('/images/services/shop-and-establishment-registration.png'),
+    image: asset('/images/services/shop-and-establishment-registration.webp'),
     summary:
       'Shop Act registration is required for businesses to operate legally in their state. startbiz.in simplifies Shop Act registration with expert documentation and compliance guidance.',
     points: [
@@ -235,7 +235,7 @@ export const services = [
     id: 4,
     slug: 'fssai-food-license',
     title: 'FSSAI Food License',
-    image: asset('/images/services/fssai-registration.png'),
+    image: asset('/images/services/fssai-registration.webp'),
     summary:
       'FSSAI food license is essential for food businesses in India. Get fast FSSAI registration and renewal support through startbiz.in business consulting services.',
     points: [
@@ -250,7 +250,7 @@ export const services = [
     id: 5,
     slug: 'partnership-firm-registration',
     title: 'Partnership Firm Registration',
-    image: asset('/images/services/partnership-firm-registration.png'),
+    image: asset('/images/services/partnership-firm-registration.webp'),
     summary:
       'Partnership firm registration establishes a formal business structure. startbiz.in handles partnership registration paperwork and legal compliance for entrepreneurs across India.',
     points: [
@@ -265,7 +265,7 @@ export const services = [
     id: 6,
     slug: 'msme-registration',
     title: 'MSME Registration',
-    image: asset('/images/services/udyam-msme-registration.png'),
+    image: asset('/images/services/udyam-msme-registration.webp'),
     summary:
       'MSME registration helps small and medium enterprises unlock government schemes and benefits. startbiz.in streamlines MSME registration for startups and growing businesses across India.',
     points: [
@@ -280,7 +280,7 @@ export const services = [
     id: 7,
     slug: 'one-person-company-registration',
     title: 'One Person Company Registration',
-    image: asset('/images/services/one-person-company-registration.png'),
+    image: asset('/images/services/one-person-company-registration.webp'),
     summary:
       'One Person Company (OPC) registration lets sole founders enjoy limited liability. startbiz.in provides startup consulting for fast, compliant OPC registration in India.',
     points: [
@@ -295,7 +295,7 @@ export const services = [
     id: 8,
     slug: 'private-limited-company-registration',
     title: 'Private Limited Company Registration',
-    image: asset('/images/services/private-limited-company-registration.png'),
+    image: asset('/images/services/private-limited-company-registration.webp'),
     summary:
       'Private limited company registration made simple with startbiz.in. Our business consulting experts handle documentation, compliance, and filings so you can launch faster.',
     points: [
@@ -310,7 +310,7 @@ export const services = [
     id: 9,
     slug: 'trademark-registration',
     title: 'Trademark Registration',
-    image: asset('/images/services/trademark-registration.png'),
+    image: asset('/images/services/trademark-registration.webp'),
     summary:
       'Trademark registration protects your business name, logo, brand name, and tagline. Get expert trademark registration support from startbiz.in business consulting services.',
     about:
@@ -354,7 +354,7 @@ export const services = [
     id: 10,
     slug: 'iso-certification',
     title: 'ISO Certification',
-    image: asset('/images/services/iso-certification.png'),
+    image: asset('/images/services/iso-certification.webp'),
     summary:
       'ISO certification demonstrates your business quality and reliability. startbiz.in helps startups and MSMEs obtain ISO certification for tenders, trust, and market growth.',
     about:
@@ -407,7 +407,7 @@ export const services = [
     id: 11,
     slug: 'import-export-registration',
     title: 'Import Export Registration (IEC)',
-    image: asset('/images/services/import-export-code-registration.png'),
+    image: asset('/images/services/import-export-code-registration.webp'),
     summary:
       'IEC (Import Export Code) is required to import or export from India. Get Import Export registration with DGFT filing support from startbiz.in business consulting experts.',
     about:

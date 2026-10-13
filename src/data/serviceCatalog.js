@@ -202,29 +202,29 @@ export const megaMenus = [
 ];
 
 const imageMap = {
-  'gst-registration': asset('/images/services/gst-registration.png'),
+  'gst-registration': asset('/images/services/gst-registration.webp'),
   'limited-liability-partnership-registration': asset(
-    '/images/services/limited-liability-partnership-registration.png'
+    '/images/services/limited-liability-partnership-registration.webp'
   ),
   'shop-and-establishment-registration': asset(
-    '/images/services/shop-and-establishment-registration.png'
+    '/images/services/shop-and-establishment-registration.webp'
   ),
-  'fssai-registration': asset('/images/services/fssai-registration.png'),
+  'fssai-registration': asset('/images/services/fssai-registration.webp'),
   'partnership-firm-registration': asset(
-    '/images/services/partnership-firm-registration.png'
+    '/images/services/partnership-firm-registration.webp'
   ),
-  'udyam-msme-registration': asset('/images/services/udyam-msme-registration.png'),
+  'udyam-msme-registration': asset('/images/services/udyam-msme-registration.webp'),
   'one-person-company-registration': asset(
-    '/images/services/one-person-company-registration.png'
+    '/images/services/one-person-company-registration.webp'
   ),
   'private-limited-company-registration': asset(
-    '/images/services/private-limited-company-registration.png'
+    '/images/services/private-limited-company-registration.webp'
   ),
-  'trademark-registration': asset('/images/services/trademark-registration.png'),
+  'trademark-registration': asset('/images/services/trademark-registration.webp'),
   'import-export-code-registration': asset(
-    '/images/services/import-export-code-registration.png'
+    '/images/services/import-export-code-registration.webp'
   ),
-  'iso-certification': asset('/images/services/iso-certification.png'),
+  'iso-certification': asset('/images/services/iso-certification.webp'),
 };
 
 const featuredSlugs = new Set(Object.keys(imageMap));
@@ -454,7 +454,7 @@ extraServices.forEach(({ cat, id, title }) => {
     catalogServices.push({
       id: nextId++,
       ...enrichService(title, id, cat, 'Additional Services'),
-      image: title === 'ISO Certification' ? asset('/images/services/iso-certification.png') : undefined,
+      image: title === 'ISO Certification' ? asset('/images/services/iso-certification.webp') : undefined,
       featured: title === 'ISO Certification',
     });
   }

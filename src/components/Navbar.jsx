@@ -48,6 +48,10 @@ export default function Navbar() {
           <img
             src={brand.logo}
             alt={`${brand.name} — ${brand.tagline}`}
+            width={640}
+            height={210}
+            decoding="async"
+            fetchPriority="high"
             className="h-11 w-auto object-contain object-left sm:h-12"
           />
         </Link>

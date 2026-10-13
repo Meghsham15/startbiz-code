@@ -80,7 +80,7 @@ function organizationLd(description, email) {
     logo: `${SITE}/images/logo-light.png`,
     image: `${SITE}/images/cover.webp`,
     description,
-    telephone: '+917519221199',
+    telephone: '+917038984692',
     email,
     areaServed: { '@type': 'State', name: 'Maharashtra' },
     address: {
@@ -88,7 +88,7 @@ function organizationLd(description, email) {
       addressRegion: 'Maharashtra',
       addressCountry: 'IN',
     },
-    sameAs: ['https://wa.me/917519221199'],
+    sameAs: ['https://wa.me/917038984692'],
     serviceType: [
       'Business Consulting Services',
       'Company Registration',
@@ -117,21 +117,33 @@ function serviceDescription(title) {
   return `Get expert help for ${title} from startbiz.in. Business consulting services for company registration, compliance and filings across Maharashtra, India.`;
 }
 
-function serviceLd(title, path, description, categoryName) {
+function serviceLd(title, path, description, categoryName, image) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: title,
     description,
     url: pageUrl(path),
+    ...(image ? { image } : {}),
     provider: { '@id': `${SITE}/#organization` },
     areaServed: { '@type': 'State', name: 'Maharashtra' },
     serviceType: categoryName || 'Business Registration',
   };
 }
 
+function serviceImageMap(catalog) {
+  const map = {};
+  const re = /'([a-z0-9-]+)':\s*asset\(\s*'(\/images\/services\/[^']+\.webp)'\s*\)/g;
+  let match;
+  while ((match = re.exec(catalog))) {
+    map[match[1]] = `${SITE}${match[2]}`;
+  }
+  return map;
+}
+
 function collectRoutes() {
   const catalog = read('src/data/serviceCatalog.js');
+  const serviceImages = serviceImageMap(catalog);
   const knowledge = read('src/data/knowledge.js');
   const industries = read('src/data/industries.js');
   const content = read('src/data/content.js');
@@ -237,6 +249,7 @@ function collectRoutes() {
     const canonicalPath = `/services/${canonicalSlug}`;
     if (routes.some((r) => r.path === path)) return;
     const description = serviceDescription(title);
+    const image = serviceImages[canonicalSlug] || serviceImages[slug];
     const route = {
       path,
       canonicalPath: canonicalPath === path ? undefined : canonicalPath,
@@ -255,6 +268,7 @@ function collectRoutes() {
       priority: options.priority || '0.8',
       includeInSitemap: canonicalPath === path,
       ogType: 'website',
+      ...(image ? { image } : {}),
     };
     route.jsonLd = [
       breadcrumbLd([
@@ -262,7 +276,7 @@ function collectRoutes() {
         ...(categoryPath ? [{ name: categoryName, path: categoryPath }] : []),
         { name: title, path: canonicalPath },
       ]),
-      serviceLd(title, canonicalPath, description, categoryName),
+      serviceLd(title, canonicalPath, description, categoryName, image),
     ];
     routes.push(route);
   }
@@ -431,7 +445,7 @@ function jsonLdTag(data) {
 
 function injectMeta(html, route) {
   const url = pageUrl(route.canonicalPath || route.path);
-  const image = `${SITE}/images/cover.webp`;
+  const image = route.image || `${SITE}/images/cover.webp`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
 
@@ -498,6 +512,7 @@ function injectMeta(html, route) {
     <noscript data-seo-fallback>
       <main style="font-family:system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem">
         <h1>${title}</h1>
+        ${route.image ? `<img src="${route.image}" alt="${title}" width="960" height="640" />` : ''}
         <p>${description}</p>
         <p><a href="${SITE}/">startbiz.in</a> · Business registrations &amp; solutions across Maharashtra.</p>
       </main>
@@ -534,7 +549,7 @@ function prerender(routes) {
 }
 
 async function writeWhatsAppQr() {
-  const phone = '917519221199';
+  const phone = '917038984692';
   const message = 'I need a business solutions';
   const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 

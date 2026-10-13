@@ -61,6 +61,10 @@ export default function Footer() {
             <img
               src={brand.logo}
               alt={`${brand.name} — ${brand.tagline}`}
+              width={640}
+              height={210}
+              decoding="async"
+              loading="lazy"
               className="h-12 w-auto max-w-[220px] object-contain sm:h-14"
             />
           </Link>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { brand } from '../data/content';
 import { asset } from '../utils/asset';
+import OptimizedImage from './OptimizedImage';
 import ServiceSearch from './ServiceSearch';
 
 const searchSuggestions = [
@@ -29,7 +30,7 @@ export default function Hero() {
   return (
     <section id="home" className="bg-white pt-[68px]">
       <div className="section-wrap grid items-center gap-10 py-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-16">
-        <div>
+        <div className="animate-fadeUp">
           <p className="text-sm font-semibold text-brand-accent sm:text-base">
             {brand.tagline}
           </p>
@@ -97,12 +98,14 @@ export default function Hero() {
           role="img"
           aria-label="Startbiz workspace with a sample progress card: three of four steps complete, GST registration in progress"
         >
-          <img
-            src={asset('/images/hero-workspace.jpg')}
+          <OptimizedImage
+            src={asset('/images/hero-workspace.webp')}
             alt=""
-            width="1280"
-            height="720"
-            className="aspect-video w-full rounded-3xl object-cover object-left"
+            width={1280}
+            height={720}
+            priority
+            className="w-full rounded-3xl"
+            imgClassName="object-cover object-left"
           />
 
           <div className="relative z-10 -mt-10 ml-5 mr-8 rounded-3xl border border-[#f0f0f0] bg-white p-5 shadow-soft sm:-mt-16 sm:p-6">
