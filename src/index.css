@@ -84,30 +84,6 @@
 
 }
 
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 60;
-  width: 100%;
-  height: 3px;
-  transform: scaleX(0);
-  transform-origin: left center;
-  pointer-events: none;
-  background: linear-gradient(90deg, #007a8a, #f48c31);
-}
-
-@keyframes reveal-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @keyframes wa-soft {
   0%,
   100% {
@@ -135,41 +111,41 @@
   animation: search-caret 1s steps(1) infinite !important;
 }
 
-#root .reveal-in {
-  animation: reveal-in 0.48s ease !important;
-  transition: none !important;
-}
-
 #root .wa-soft {
   animation: wa-soft 2.8s ease-in-out infinite !important;
 }
 
-#root a.rounded-xl,
-#root a.rounded-2xl,
-#root article.rounded-xl,
-#root article.rounded-2xl {
-  transition-property: color, background-color, border-color, opacity, transform !important;
-  transition-duration: 0.18s !important;
+#root [data-aos] {
+  transition-property: opacity, transform !important;
+  transition-duration: 0.6s !important;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-#root a.rounded-xl:hover,
-#root a.rounded-2xl:hover,
-#root article.rounded-xl:hover,
-#root article.rounded-2xl:hover {
-  transform: translateY(-3px);
+#root [data-aos='zoom-in'] {
+  transform: scale(0.94) !important;
+}
+
+#root [data-aos='zoom-in'].aos-animate {
+  transform: scale(1) !important;
+}
+
+#root [data-aos='zoom-out'] {
+  transform: scale(1.05) !important;
+}
+
+#root [data-aos='zoom-out'].aos-animate {
+  transform: scale(1) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #root .reveal-in,
   #root .wa-soft {
     animation: none !important;
   }
 
-  #root a.rounded-xl:hover,
-  #root a.rounded-2xl:hover,
-  #root article.rounded-xl:hover,
-  #root article.rounded-2xl:hover {
-    transform: none;
+  #root [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

@@ -6,7 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import ContactForm from './components/ContactForm';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import SiteSkeleton from './components/SiteSkeleton';
-import ScrollMotion from './components/ScrollMotion';
+import AosMotion from './components/AosMotion';
 
 const Home = lazy(() => import('./pages/Home'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
@@ -34,7 +34,7 @@ function PageContent({ children }) {
     <>
       <div hidden={!ready}>{children}</div>
       {ready ? null : <SiteSkeleton />}
-      <ScrollMotion active={ready} />
+      <AosMotion active={ready} />
     </>
   );
 }
