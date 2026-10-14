@@ -110,9 +110,12 @@ export default function ServiceDetail() {
     'timeline',
     faqs.length ? 'faqs' : null,
   ].filter(Boolean);
+  const sectionKey = sectionIds.join('|');
 
   useEffect(() => {
-    const nodes = sectionIds
+    if (!slug) return undefined;
+    const nodes = sectionKey
+      .split('|')
       .map((id) => document.getElementById(id))
       .filter(Boolean);
     if (!nodes.length) return undefined;
@@ -123,11 +126,11 @@ export default function ServiceDetail() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target?.id) setActiveId(visible.target.id);
       },
-      { rootMargin: '-20% 0px -60% 0px', threshold: [0.15, 0.4] }
+      { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.2] }
     );
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, [slug, sectionIds.join('|')]);
+  }, [slug, sectionKey]);
 
   if (!service) {
     return <Navigate to="/" replace />;

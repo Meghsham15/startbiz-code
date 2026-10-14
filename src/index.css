@@ -84,10 +84,46 @@
 
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  background: linear-gradient(90deg, #007a8a, #f48c31);
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wa-soft {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 #root,
 #root * {
   animation: none !important;
-  transition: none !important;
+  transition-property: color, background-color, border-color, outline-color, opacity !important;
+  transition-duration: 0.15s !important;
+  transition-timing-function: ease !important;
   scroll-behavior: auto !important;
 }
 
@@ -97,6 +133,44 @@
 
 #root .search-caret {
   animation: search-caret 1s steps(1) infinite !important;
+}
+
+#root .reveal-in {
+  animation: reveal-in 0.48s ease !important;
+  transition: none !important;
+}
+
+#root .wa-soft {
+  animation: wa-soft 2.8s ease-in-out infinite !important;
+}
+
+#root a.rounded-xl,
+#root a.rounded-2xl,
+#root article.rounded-xl,
+#root article.rounded-2xl {
+  transition-property: color, background-color, border-color, opacity, transform !important;
+  transition-duration: 0.18s !important;
+}
+
+#root a.rounded-xl:hover,
+#root a.rounded-2xl:hover,
+#root article.rounded-xl:hover,
+#root article.rounded-2xl:hover {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root .reveal-in,
+  #root .wa-soft {
+    animation: none !important;
+  }
+
+  #root a.rounded-xl:hover,
+  #root a.rounded-2xl:hover,
+  #root article.rounded-xl:hover,
+  #root article.rounded-2xl:hover {
+    transform: none;
+  }
 }
 
 @keyframes search-caret {

@@ -10,6 +10,7 @@ export default function WhatsAppFloat() {
       className="group fixed bottom-20 right-4 z-40 print:hidden sm:bottom-6 sm:right-6"
       aria-label="Talk to Startbiz on WhatsApp"
     >
+      <span className="wa-soft pointer-events-none absolute inset-0 rounded-full bg-[#25D366]/40" aria-hidden />
       <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_18px_-10px_rgba(37,211,102,0.9)]">
         <span className="absolute right-1 top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-brand-accent" aria-hidden />
         <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor" aria-hidden>
